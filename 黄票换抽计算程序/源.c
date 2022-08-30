@@ -32,9 +32,13 @@ int main(void)
 			}
 			Distinction_Certificate -= PHASE[phase];//减去当前阶段需消耗的黄票数（购买后扣除黄票）
 			if (phase < 5)//检测阶段是否小于5
+			{	
 				phase++;//加1阶段
+			}	
 			else
+			{	
 				break;//跳出循环
+			}	 
 		}
 		status_1 = printf("您这个月总共可以换取%d抽（%d次单抽和%d次十连）", pulls, Headhunting_Permit, Ten_roll_Headhunting_Permit);
 		status_2 = printf("，剩余%d张高级凭证。\n", Distinction_Certificate);
