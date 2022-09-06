@@ -1,4 +1,4 @@
-//一个黄票换抽的计算程序(V0.2)
+//一个黄票换抽的计算程序(V0.3)
 #include<stdio.h>
 int main(void)
 {
@@ -7,21 +7,18 @@ int main(void)
 	//各阶段可换的抽数
 	int PULLS[6] = { 0,1 * 1,2 * 1,5 * 1,1 * 10,2 * 10 };
 	int Distinction_Certificate, //黄票数
-            pulls, //抽数
+	    pulls, //抽数
 	    Headhunting_Permit, //单抽数
 	    Ten_roll_Headhunting_Permit;//十连数
 	int status_1, status_2, i;
 	printf("欢迎使用高级凭证兑换寻访凭证的计算程序（输入字母可退出程序）。\n");
 	printf("请输入您的高级凭证数量：");
-	while (1)
+	while (scanf_s("%d", &Distinction_Certificate) == 1)//读取用户的输入并检测返回值是否为1
 	{
-		if (scanf_s("%d", &Distinction_Certificate) == 0)//读取用户的输入并检测返回值是否为0
-			break;
-		while (Distinction_Certificate < 0)//检测用户输入的数字是否小于0（负数）
+		if (Distinction_Certificate < 0)//检测用户输入的数字是否小于0（负数）
 		{
 			printf("高级凭证的数量不能为负数，请重新输入：");
-			if (scanf_s("%d", &Distinction_Certificate) == 0) // 读取用户的输入并检测返回值是否为0
-			return;
+			continue;//跳转至while循环的测试条件
 		}
 		int phase = 1;//将阶段初始化为1
 		pulls = 0;//将抽数初始化为0
